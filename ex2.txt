@@ -1,0 +1,19 @@
+    1  ls
+    2  cd ~
+    3  ls
+    4  cd ..
+    5  ls
+    6  cd home
+    7  ls
+    8  cd ..
+    9  cd ..
+   10  mkdir ~/week1
+   11  cd ~/week1
+   12  ls
+   13  ls /urs/bin
+   14  ls /usr/bin
+   15  ls /usr/bin | sort -r | grep gcc > ex1.txt
+   16  ls
+   17  nano ex1.txt 
+   18   
+   19  history > ex2.txt
