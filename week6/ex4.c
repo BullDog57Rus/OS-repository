@@ -19,7 +19,9 @@ void usr1Handler(int signal) {
 
 int main() {
     signal(SIGKILL, killHandler);
+    signal(SIGKILL, SIG_DFL);
     signal(SIGSTOP, stopHandler);
+    signal(SIGSTOP, SIG_DFL);
     signal(SIGUSR1, usr1Handler);
     while (1) { }
 }
