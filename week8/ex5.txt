@@ -1,0 +1,2 @@
+Virtual address is mapped to address memory. 
+It is just physical address's abstraction.

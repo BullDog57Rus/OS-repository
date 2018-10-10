@@ -1,0 +1,2 @@
+8 KB is 2^13 addresses. 13/16 bits are for 8192 address within a page.
+3/16 bits for a page. So we have 8 pages.
