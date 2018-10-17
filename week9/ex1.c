@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <limits.h>
 
 typedef struct Page {
     unsigned char lifespan;
@@ -46,18 +47,21 @@ int main(int argc, char *argv[]) {
     int found = 0;
     int hit = 0;
     int miss = 0;
-    int pageToReplace = 0;
-    int pageToReplaceSpan = INT32_MAX;
+    unsigned int pageToReplace = 0;
+    unsigned char pageToReplaceSpan = UCHAR_MAX;
     PageTable *pageTable = initPageTable(n);
-    printf("%d\n", n);
     FILE *file = fopen("input.txt", "r");
+    printf("Hits:\n");
     while (fscanf(file, "%d", &cur_frame) == 1) {
         found = 0;
+        pageToReplaceSpan = UCHAR_MAX;
         for (int i = 0; i < pageTable->count; ++i) {
             if (pageTable->pages[i]->pageNumber == cur_frame) {
                 pageTable->pages[i]->referenced = 1;
                 found = 1;
+                printf("%d ", cur_frame);
                 ++hit;
+                break;
             }
         }
         if (found != 1) {
@@ -68,6 +72,7 @@ int main(int argc, char *argv[]) {
             } else {
                 for (int i = 0; i < pageTable->count; ++i) {
                     if (pageTable->pages[i]->lifespan < pageToReplaceSpan) {
+                        pageToReplaceSpan = pageTable->pages[i]->lifespan;
                         pageToReplace = i;
                     }
                 }
@@ -81,7 +86,7 @@ int main(int argc, char *argv[]) {
     }
     fclose(file);
 
-    printf("Hit/Miss rate: %f%%\n", ((double) hit / miss) * 100);
+    printf("\nHit/Miss (%d/%d) rate: %f%%\n", hit, miss, ((double) hit / miss) * 100);
 
     return 0;
 }
