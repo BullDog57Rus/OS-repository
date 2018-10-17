@@ -1,0 +1,7 @@
+To increase Hit/Miss ratio:
+    1) Use less distinct pages in a row;
+    2) Use more page frames
+
+To decrease:
+    1) Use a lot of different pages in a row;
+    2) Less page frames
