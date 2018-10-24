@@ -1,0 +1,5 @@
+660 = 110110000 bits,
+775 = 111111101 bits,
+777 = 111111111 bits, 
+    where 110 means read, write, execute permission (given or not).
+First 3 bits are for current user, next 3 for group of user and last 3 for others.
