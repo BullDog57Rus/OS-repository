@@ -1,0 +1,1 @@
+As the buffer is copied to the child process too, in the first programm the copied buffer is "Hello" and both processes write the result into the output (because stdout is line buffered). In the second program the buffer flushes after \n, so the child process will get "" buffer and cannot white anything except "\n".
