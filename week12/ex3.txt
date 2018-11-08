@@ -1,0 +1,2 @@
+As the buffer small, we need to make syscall's very often. As it becomes bigger, we can make syscall's less times, and they are very expensive. 
+Async doesn't wait the I/O to be completed and continuous the program. Sync is waiting for each syscall to be completed, so slower.
